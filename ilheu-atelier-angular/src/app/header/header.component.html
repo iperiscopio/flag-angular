@@ -1,0 +1,33 @@
+<header>
+  
+  <section class="container-header">
+
+    <div class="logo">
+      <h1>
+        <a routerLink="/">{{ title }}</a>
+      </h1>
+    </div>
+    
+    <nav class="nav-bar" >
+      <div [hidden]="!menuMobile" class="menuMobile"> 
+        <a (click)="toggleMenuMobile()">&plus;</a>
+        
+      </div>
+      <div [hidden]="menuMobile" class="menuMobile"> 
+        <a (click)="toggleMenuMobile()">&times;</a>
+      </div>
+
+      <div [hidden]="menuMobile">
+        <ul class="menu-list" >
+          <li routerLinkActive = 'active'><a routerLink="/about">About</a></li>
+          <li><a routerLink="/projects">Projects</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+          <li *ngIf="isAdminAuth"><a routerLink="/secretAdmin">Backoffice</a></li>
+        </ul>
+      </div>
+
+    </nav>
+
+  </section>
+
+</header>

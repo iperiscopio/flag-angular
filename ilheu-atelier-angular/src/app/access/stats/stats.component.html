@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Website Statistics</h1>
+    
+    <div class="container-stats">
+        <div class="container-p">
+            <p>Admins <span>{{adminsCount}}</span></p>
+        </div>
+        <div class="container-p">
+            <p>Projects <span>{{projectsCount}}</span></p>
+        </div>
+        <div class="container-p">
+            <p>Projects images <span>{{imagesCount}}</span></p>
+        </div>
+        <div class="container-p">
+            <p>Clients <span>{{clientsCount}}</span></p>
+        </div>
+        <div class="container-p">
+            <p>Messages <span>{{messagesCount}}</span></p>
+        </div>
+    </div>
+
+    <section class="container-grid">
+        <div class="container-projects" *ngFor="let project of allProjects; index as i">
+            <div class="project">
+                <button>
+                    <img *ngIf="project.images" [src]="project.images[0]" alt="{{ project.title }}">
+                    <div>
+                        <h2>{{ project.title }}</h2>
+                        <p>{{ project.location }}<p>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+    </section>
+</div>

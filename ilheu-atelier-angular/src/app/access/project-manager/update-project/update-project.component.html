@@ -1,0 +1,116 @@
+<div class="container-update-projects">
+
+    <h1>Choose a project to update</h1>
+    <section class="container-grid" >
+        <div class="container-projects" *ngFor="let project of allProjects; index as i">
+            <div class="project">
+                <button type="button" (click)="selectedProject(project)">
+                    <img *ngIf="project.images" [src]="project.images[0]" alt="{{ project.title }}">
+
+                    <div>
+                        <h2>{{ project.title }}</h2>
+                        <p>{{ project.location }}<p>
+                    </div>
+                </button>
+            </div>
+        </div>
+     
+    </section>
+
+    
+    <div [hidden]="!selectedImages"
+        class="div-delete-image">
+        <div
+            class="delete-image"
+            *ngFor="let images of formImages; index as i">
+            <div >
+                <img [src]="formImages[i][0]" alt="{{projectUpdate.title}}">
+                <button (click)="deleteImage(formImages[i][1])">X</button>
+            </div>
+        </div>
+    </div>
+
+    <form
+        #f="ngForm"
+        [hidden]="!selectedId"
+        *ngIf="formId > 0"
+        class="form-updateProject"
+        #updateProjectForm ="ngForm"
+        (ngSubmit)="changeProject( formId, f )">
+        
+        
+        <div [hidden]="submitted">
+            <label>
+                Title:
+                <input
+                    type="text"
+                    name="title"
+                    #projectUpdateTitle="ngModel"
+                    [(ngModel)]="projectUpdate.title"
+                    required>
+            </label>
+            <div *ngIf="projectUpdateTitle.errors && projectUpdateTitle.touched">
+                <p role="alert" *ngIf="projectUpdateTitle.errors.required">Mandatory field!</p>
+            </div>
+                
+            <label>
+                Location
+                <input
+                    type="text"
+                    name="location"
+                    #projectUpdateLocation="ngModel"
+                    [(ngModel)]="projectUpdate.location"
+                    required>
+            </label>
+            <div *ngIf="projectUpdateLocation.errors && projectUpdateLocation.touched">
+                <p role="alert" *ngIf="projectUpdateLocation.errors.required">Mandatory field!</p>
+            </div>
+    
+            <label>
+                Description
+            </label>
+            <ckeditor 
+                [editor]="Editor"
+                [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic', 'link', '|', 'blockquote' ] }"
+                tagName="textarea"
+                name="description"
+                minlength="10"
+                maxlength="65535"
+                #projectUpdateDescription="ngModel"
+                [(ngModel)]="projectUpdate.description"
+                required>
+            </ckeditor>
+            
+            <div *ngIf="projectUpdateDescription.errors && projectUpdateDescription.touched">
+                <p role="alert" *ngIf="projectUpdateDescription.errors.required">Mandatory field!</p>
+            </div>
+
+            
+
+            <label>
+                Add new images to this project
+                <input 
+                    type="file"
+                    name="images"
+                    (change)="onSelectedFile($event)"
+                    accept=".jpg, .png, .gif, .webp"
+                    multiple>
+            </label>
+
+            <button 
+                type="submit"
+                name="send"
+                [disabled]="updateProjectForm.invalid">Update Project</button>
+        </div>
+    
+        <div class="form-submitted" [hidden]="!submitted">
+            <p>The project {{projectUpdate.title}} was updated with success</p>
+        </div>
+
+        <div class="error-message" [hidden]="!err">
+            <p>{{ error }}</p>
+        </div>
+    </form>
+
+    
+</div>

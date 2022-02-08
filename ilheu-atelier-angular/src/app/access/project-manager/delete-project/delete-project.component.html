@@ -1,0 +1,59 @@
+<div class="container-delete-projects">
+
+    <h1>Choose a project to delete</h1>
+    <section class="container-grid" >
+        <div class="container-projects" *ngFor="let project of allProjects; index as i">
+            <div class="project">
+                <button type="button" (click)="selectedProject(project)">
+                    <img *ngIf="project.images" [src]="project.images[0]" alt="{{ project.title }}">
+                    <div>
+                        <h2>{{ project.title }}</h2>
+                        <p>{{ project.location }}<p>
+                    </div>
+                </button>
+            </div>
+        </div>
+     
+      </section>
+
+    <form
+        class="form-deleteProject"
+        [hidden]="!selectedId"
+        #deleteProjectForm ="ngForm"
+        (ngSubmit)="removeProject( formId )">
+        
+        <div [hidden]="submitted">
+            <button
+                type="button"
+                class="x-button"
+                (click)="cancel()">X
+            </button>
+            <p>Do you wish to delete project "{{ formTitle }}"?</p>
+            <button 
+                type="button"
+                (click)="cancel()">Cancel
+            </button>
+            <button 
+                type="submit"
+                name="send">Delete Project
+            </button> 
+        </div>
+
+        <div class="form-submitted" [hidden]="!submitted">
+            <button 
+                type="button"
+                (click)="cancel()">X
+            </button>
+            <p>Project {{formTitle}} was deleted with success</p>
+        </div>
+        <div class="error-message" [hidden]="!err">
+            <button 
+                type="button"
+                (click)="cancel()">X
+            </button>
+            <p>{{ error }}</p>
+        </div>
+        
+    </form>
+</div>
+

@@ -1,0 +1,545 @@
+.container-info {
+    margin: 5% 12% 15% 15%;
+
+    .add-info {
+        margin: 0 50px 50px 50px;
+        padding: 90px;
+        border-bottom: 1px solid #ebe9e9;
+        text-align: center;
+        
+        button {
+            border-radius: 3px;
+            border-style: none;
+            cursor: pointer;
+            background-color: #ebe9e9;
+            color: #525252;
+
+            h1 {
+                font-size: 1.5rem;
+                padding: 7px 20px;
+                text-transform: lowercase;
+            }
+        }
+
+        button:hover {
+            background-color: #525252;
+            color: #ebe9e9;
+            box-shadow: 0px 2px 5px grey;
+        }
+
+        .form-addInfo {
+            margin-top: 7%;
+            margin-bottom: 4%;
+            width: 100%;
+            text-align: left;
+        
+            label, input {
+                width: 100%;
+                margin-top: 10px;
+            }
+        
+            label {
+                display: inline-block;
+                font-size: 16px;
+                text-transform: lowercase;
+            }
+        
+            input {
+                height: 4vh;
+                border: none;
+                background: rgb(211, 211, 211);
+                border-radius: 3px;
+            }
+            
+            button {
+                font-size: 1rem;
+                margin-top: 20px;
+                width: 130px;
+                height: 6vh;
+                border-radius: 3px;
+                border-style: none;
+                background-color: #525252;
+                color: #fff;
+                cursor: pointer;
+                text-transform: lowercase;
+            }
+        
+            button:disabled,
+            button[disabled] {
+                background-color: #ebe9e9;
+                color: rgb(59, 59, 59);
+                cursor:auto;
+            }
+
+            button:hover:not([disabled]) {
+                box-shadow: 0px 2px 5px grey;
+            }
+        
+            .ng-invalid.ng-touched {
+                border: 1px solid #F00;
+            }
+        
+        
+            .success-message {
+        
+                text-align: center;
+        
+                p {
+                    color: #525252;
+                    font-size: 18px;
+                }
+            }
+            
+            .error-message {
+        
+                text-align: center;
+        
+                p {
+                    color: #F00;
+                }
+            }
+        
+        }
+    }
+
+    .info {
+        margin-top: 50px;
+        margin-bottom: 10%;
+        position: relative;
+        
+        h1 {
+            font-size: 1.4rem;
+            color: #525252;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        .buttons {
+            margin-top: 20px;
+
+            button {
+                margin-right: 20px;
+                font-size: 1.1rem;
+                padding: 7px 20px;
+                border-radius: 3px;
+                border-style: none;
+                cursor: pointer;
+                background-color: #ebe9e9;
+                color: #525252;
+                text-transform: lowercase;
+            }
+
+            button:hover, 
+            button:focus {
+                background-color: #525252;
+                color: #ebe9e9;
+                box-shadow: 0px 2px 5px grey;
+            }
+        }
+
+        
+    }
+}
+
+.form-updateInfo {
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    padding: 70px 30px;
+    width: 40%;
+    margin-top: 3%;
+    margin-bottom: 15%;
+    width: 45%;
+    text-align: left;
+    background-color: #ebe9e9;
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px grey;
+
+    .closeUpdatePopup {
+        position: relative;
+        text-align: center;
+
+        button {
+            position: absolute;
+            margin-top: 0;
+            bottom: 85px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            border-style: none;
+            background-color: #ebe9e9;
+            color: rgb(59, 59, 59);
+            cursor: pointer;
+            text-transform: lowercase;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: #525252;
+            padding-bottom: 40px;
+        }
+    }
+
+    
+    label, input {
+        width: 100%;
+        margin-top: 10px;
+        
+    }
+
+    label {
+        display: inline-block;
+        font-size: 16px;
+        text-transform: lowercase;
+    }
+
+    input {
+        height: 4vh;
+        border: none;
+        background: rgb(211, 211, 211);
+        border-radius: 3px;
+    }
+    
+    button {
+        font-size: 1rem;
+        margin-top: 20px;
+        width: 130px;
+        height: 6vh;
+        border-radius: 3px;
+        border-style: none;
+        background-color: #525252;
+        color: #fff;
+        cursor: pointer;
+        text-transform: lowercase;
+    }
+
+    button:disabled,
+    button[disabled] {
+        background-color: #ebe9e9;
+        color: rgb(59, 59, 59);
+        cursor:auto;
+    }
+
+    button:hover:not([disabled]) {
+        box-shadow: 0px 2px 5px grey;
+    }
+
+    .ng-invalid.ng-touched {
+        border: 1px solid #F00;
+    }
+
+    .success-message {
+
+        text-align: center;
+
+        p {
+            color: #525252;
+            font-size: 18px;
+            text-transform: lowercase;
+        }
+    }
+    
+    .error-message {
+
+        text-align: center;
+
+        p {
+            color: #F00;
+            text-transform: lowercase;
+        }
+    }
+
+}
+
+.popup,
+.popup:focus {
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    padding: 70px 30px;
+    width: 40%;
+    text-align: center;
+    background-color: #ebe9e9;
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px grey;
+
+    div {
+        position: relative;
+
+        .x-button {
+            position: absolute;
+            top: -55px;
+            right: -13px;
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            border-style: none;
+            cursor: pointer;
+            margin: 0;
+            background-color: #ebe9e9;
+            color: rgb(59, 59, 59);
+        }
+
+        p {
+            color: #F00;
+            text-transform: lowercase;
+        }
+        
+        button {
+            margin: 45px 20px 0 0;
+            width: 120px;
+            height: 50px;
+            border-radius: 3px;
+            border-style: none;
+            background-color: #525252;
+            color: #fff;
+            cursor: pointer;
+            text-transform: lowercase;
+        }
+
+        button:hover {
+            background-color: #ebe9e9;
+            color: rgb(59, 59, 59);
+            box-shadow: 0px 1px 5px grey;
+        }
+  
+    }
+    
+    
+    .success-message {
+        text-align: center;
+        position: relative;
+    
+        button {
+            position: absolute;
+            bottom: 45px;
+            right: -30px;
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            border-style: none;
+            background-color: #ebe9e9;
+            color: rgb(59, 59, 59);
+            cursor: pointer;
+            text-transform: lowercase;
+        }
+        p {
+            color: #525252;
+            font-size: 18px;
+            text-transform: lowercase;
+        }
+    }
+ 
+}
+
+@media screen and (min-width: 250px) and (max-width: 750px) {
+    .container-info {
+        margin: 20% 5% 40%;
+
+        .add-info {
+            padding: 0 0 60px;
+            
+            .form-addInfo {
+                margin-top: 17%;
+
+                input {
+                    height: 30px;
+                }
+                button {
+                    height: 45px;
+                    width: 100px;
+                } 
+            }
+        }
+    }
+
+    .form-updateInfo {
+        margin-top: 0;
+        top: 3%;
+        left: 5%;
+        width: 90%;
+        z-index: 1;
+        height: 85%;
+        overflow: auto;
+    }
+
+    .popup {
+        width: 70%;
+        left: 15%; 
+        top: 25%;
+
+        button {
+            &:first-of-type {
+                margin: 45px 0 15px;
+            }
+            &:last-of-type {
+                margin: 15px 0 0;
+            }
+        }
+    }
+   
+   
+}
+
+@media only screen and (min-width: 751px) and (max-width: 1024px) {
+    .container-info {
+        .add-info {
+            padding: 40px 0px;
+
+            .form-addInfo {
+
+                input {
+                    height: 30px;
+                }
+                button {
+                    height: 50px;
+                    width: 110px;
+                }
+            }
+        }
+    }
+
+    .form-updateInfo {
+        margin: 0;
+        z-index: 1;
+        top: 10%;
+        left: 16%;
+        padding: 70px 30px;
+        width: 70%;
+        height: 75%;
+        overflow: auto;
+
+        .closeUpdatePopup {
+            button {
+                bottom: 77px;
+            }
+        }
+
+        input {
+            height: 30px;
+        }
+        button {
+            height: 50px;
+            width: 110px;
+        }
+    }
+
+    .popup {
+        width: 50%;
+        left: 26%;
+    }
+    
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1499px) {
+    .form-updateInfo {
+        margin: 0;
+        z-index: 1;
+        top: 13%;
+        left: 26%;
+        padding: 60px 30px 38px;
+        height: 75%;
+        width: 50%;
+        overflow: auto;
+
+        .closeUpdatePopup {
+            
+            button {
+                bottom: 77px;
+                
+            }
+        }
+    }
+    
+}
+
+@media only screen and (min-width: 1500px) and (max-width: 2500px) {
+    .container-info {
+        .add-info {
+            padding-top: 40px;
+
+            .form-addInfo {
+                width: 85%;
+
+                input {
+                    height: 4vh;
+                }
+                button {
+                    height: 5vh;
+                } 
+            }
+        }
+
+        .info {
+            width: 80%;
+        }
+    }
+
+    .form-updateInfo {
+        top: 5%;
+        left: 30%;
+        padding: 50px 30px 33px 30px;
+
+        .closeUpdatePopup {
+            
+            button {
+                top: -32px;
+                
+            }
+        }
+
+        input {
+            height: 4vh;
+        }
+        button {
+            height: 5vh;
+        }
+
+    }
+    .popup {
+        width: 27%;
+        left: 37%;
+    }
+
+}
+
+@media only screen and (min-width: 2501px) {
+    .container-info {
+        .add-info {
+            .form-addInfo {
+                input {
+                    height: 50px;
+                }
+                button {
+                    height: 5vh;
+                    width: 160px;
+                } 
+            }
+        }
+
+        .info {
+            margin: 5% auto 10%;
+            width: 50%;
+        }
+    }
+
+    .form-updateInfo {
+        margin: 0;
+        input {
+            height: 50px;
+        }
+        button {
+            height: 5vh;
+            width: 160px;
+        }
+    }
+
+    .popup {
+        width: 30%;
+        left: 37%;
+    }
+}

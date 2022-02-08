@@ -1,0 +1,99 @@
+header {
+    position: relative;
+
+    .container-header {
+        width: 100%;
+        display: flex;
+        position: fixed;
+        top: 0;
+        background: #fff;
+
+        .logo {  
+        margin-top: 7vh;
+        margin-left: 10%;
+
+            h1 {
+                font-size: 30px;
+                font-weight: normal;
+                text-transform: lowercase;
+
+                a {
+                    text-decoration: none;
+                    color: #525252;
+                    text-transform: lowercase;
+                }
+            }
+        }
+        
+        .nav-bar {
+            text-align: right;
+            margin-top: 8vh;
+            margin-right: 10%;
+            font-family: hoefler, serif;
+            color: #525252;
+            font-size: 14pt;
+
+            .menuMobile {
+                 >a {
+                    display: none;
+                }
+            }
+
+            .menu-list {
+                margin: 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                
+                li {
+                    display: inline;
+                    list-style: none;
+                    margin-left: 40px;  
+                    
+                    a {
+                        text-decoration: none;
+                        color: #525252;
+                        text-transform: lowercase;
+                    }
+                }
+            }
+        }
+    }   
+}
+
+@media screen and (min-width: 250px) and (max-width: 750px) {
+    header {
+        .container-header {
+            z-index: 1;
+
+            .nav-bar {
+                .menuMobile{
+                    margin-right: 25px;
+                    transition: all 1s ease;
+
+                    a {
+                        display: inline;
+                        cursor: pointer;
+                        font-size: 24px;
+                    }
+                }
+               
+                
+                div {
+
+                    .menu-list {
+                        display: inline-block;
+                        padding: 25px 20px 20px;
+
+                        li {
+                            display: block;
+                            padding: 10px;
+                            margin-left: 0;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}

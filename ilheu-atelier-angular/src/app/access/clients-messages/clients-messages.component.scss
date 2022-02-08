@@ -1,0 +1,527 @@
+.container-messages {
+    width: 75%;
+    margin-top: 7%;
+    margin-bottom: 7%;
+
+    table {
+        width: 100%;
+
+        .titles {
+            th {
+                font-size: 1.2rem;
+                background-color: #ebe9e9;
+                color: #525252;
+                border-radius: 3px;
+                padding: 3px 15px;
+                text-transform: lowercase;
+            }
+            .message {
+                width: 45%;
+            }
+            
+        }
+
+        .info {
+            td {
+                padding: 20px 0;
+                border-bottom: 1px solid #525252;
+            }
+
+            td:not(.message) {
+                text-align: center;
+            }
+            
+            .message {
+                overflow: hidden;
+            }
+
+            div {
+                display: table-cell;
+                vertical-align: middle;
+                padding: 10px;
+
+                button {
+                    width: 70px;
+                    height: 30px;
+                    border-radius: 3px;
+                    border-style: none;
+                    background-color: #ebe9e9;
+                    color: #525252;
+                    cursor: pointer;
+                    text-transform: lowercase;
+                }
+
+                button:hover,
+                button:focus {
+                    background-color: #525252;
+                    color: #ebe9e9;
+                    box-shadow: 0px 1px 5px grey;
+                }
+            }
+        }
+    } 
+    
+    .small-devices {
+        display: none;
+    }
+
+    .mobile-devices {
+        display: none;
+    }
+}
+
+.emailPopup,
+.emailPopup:focus {
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    padding: 70px 30px;
+    width: 40%;
+    text-align: center;
+    background-color: #ebe9e9;
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px grey;
+    z-index: 1;
+
+    div {
+        position: relative;
+
+        .x-button {
+            position: absolute;
+            top: -55px;
+            right: -13px;
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            border-style: none;
+            cursor: pointer;
+            margin: 0;
+            background-color: #ebe9e9;
+            color: rgb(59, 59, 59);
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-transform: lowercase;
+        }
+
+        label, input {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        label {
+            display: inline-block;
+            font-size: 16px;
+            text-transform: lowercase;
+            text-align: left;
+        }
+
+        input {
+            height: 4vh;
+            border: none;
+            background: rgb(211, 211, 211);
+            border-radius: 3px;
+        }
+
+        
+
+        button {
+            margin: 30px 20px 0 0;
+            width: 120px;
+            height: 50px;
+            border-radius: 3px;
+            border-style: none;
+            background-color: #525252;
+            color: #fff;
+            cursor: pointer;
+            text-transform: lowercase;
+        }
+
+        button:hover {
+            background-color: #ebe9e9;
+            color: rgb(59, 59, 59);
+            box-shadow: 0px 1px 5px grey;
+        }    
+    }
+
+    .success-message {
+        text-align: center;
+        position: relative;
+    
+        button {
+            position: absolute;
+            bottom: 45px;
+            right: -30px;
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            border-style: none;
+            cursor: pointer;
+            text-transform: lowercase;
+            background-color: #ebe9e9;
+            color: rgb(59, 59, 59);
+        }
+        p {
+            color: #525252;
+            font-size: 18px;
+            text-transform: lowercase;
+        }
+    }
+    
+}
+
+.delPopup,
+.delPopup:focus {
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    padding: 70px 30px;
+    width: 40%;
+    text-align: center;
+    background-color: #ebe9e9;
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px grey;
+
+    div { 
+        position: relative;
+
+        .x-button {
+            position: absolute;
+            top: -55px;
+            right: -13px;
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            border-style: none;
+            cursor: pointer;
+            margin: 0;
+            background-color: #ebe9e9;
+            color: rgb(59, 59, 59);
+        }
+    
+        p {
+            color: #F00;
+            text-transform: lowercase;
+        }
+        
+        button {
+            margin: 45px 20px 0 0;
+            width: 120px;
+            height: 50px;
+            border-radius: 3px;
+            border-style: none;
+            background-color: #525252;
+            color: #fff;
+            cursor: pointer;
+            text-transform: lowercase;
+        }
+
+        button:hover {
+            background-color: #ebe9e9;
+            color: rgb(59, 59, 59);
+            box-shadow: 0px 1px 5px grey;
+        }
+    }
+
+    .success-message {
+        text-align: center;
+        position: relative;
+    
+        button {
+            position: absolute;
+            bottom: 45px;
+            right: -30px;
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            border-style: none;
+            background-color: #ebe9e9;
+            color: rgb(59, 59, 59);
+            cursor: pointer;
+            text-transform: lowercase;
+        }
+        p {
+            color: #525252;
+            font-size: 18px;
+            text-transform: lowercase;
+        }
+    }
+}
+
+@media screen and (min-width: 250px) and (max-width: 750px) {
+    .container-messages {
+        width: 90%;
+
+        table {
+            display: none;
+            
+        } 
+        
+        .small-devices {
+            display: none;
+        }
+
+        .mobile-devices {
+            display: block;
+
+            .info {
+                div {
+                    padding: 20px 0;
+                    border-bottom: 1px solid black;
+                    background-color: #ebe9e9;
+                    
+                    tr {
+                        th {
+                            width: 25%;
+                            text-align: left;
+                            padding-left: 30px;
+                        }
+
+                        td {
+                            border-bottom: none;
+                            background-color: white;
+                        }
+
+                        .message {
+                            text-align: left;
+                            padding-left: 8px;
+                        }
+                    }
+
+                    td {
+                        border-bottom: none;
+                        padding: 25px 0 10px;
+
+                        button {
+                            background-color: #525252;
+                            color: #ebe9e9;
+
+                            &:first-of-type {
+                                margin-right: 20px;
+                            }
+
+                            &:last-of-type {
+                                margin-left: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .emailPopup {
+        margin: 0;
+        z-index: 1;
+        top: 10%;
+        left: 5%;
+        padding: 70px 25px;
+        width: 90%;
+        height: 75%;
+        overflow: auto;
+    
+        input {
+            height: 30px;
+        }
+        button {
+            height: 50px;
+            width: 110px;
+    
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+    }
+    
+    .delPopup {
+        width: 70%;
+        left: 15%;
+    
+        button {
+            &:first-of-type {
+                margin: 45px 0 15px;
+            }
+            &:last-of-type {
+                margin: 15px 0 0;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 751px) and (max-width: 1024px) {
+    .container-messages {
+        width: 90%;
+
+        table {
+            display: none;
+            
+        } 
+        
+        .small-devices {
+            display: block;
+            margin-bottom: 25%;
+
+            .info {
+                div {
+                    border-bottom: 1px solid black;
+                    padding: 40px 0px;
+                    background-color: #ebe9e9;
+
+                    tr {
+
+                        .col-1 {
+                            width: 7%;
+                            border-right: 1px solid black;
+                            padding-right: 20px;
+                            background-color: #ebe9e9;
+                        }
+
+                        .message {
+                            width: 55%;
+                            border-right: none;
+                            border-bottom: 1px solid black;
+                            padding: 10px;
+                            background-color: #ebe9e9;
+                        }
+
+                        .message-date {
+                            width: 11%;
+                            border-bottom: 1px solid black;
+                            background-color: #ebe9e9;
+                        }
+
+                        th{
+                            &:last-of-type {
+                                width: 10%;
+                                background-color: #ebe9e9;
+                            }
+                        }
+                        
+                        td {
+                            border: none;
+                            padding: 10px;
+                            background-color: #fff;
+
+                            &:last-of-type() {
+                                padding: 0;
+                            }
+
+                            button {
+                                margin: 10% 0;
+                                background-color: #525252;
+                                color: #ebe9e9;
+                            }
+                        }
+                        
+                        .td-message {
+                            text-align: left;
+                        }
+                    }
+                }    
+            }
+        }
+    }
+    .emailPopup {
+        margin: 0;
+        z-index: 1;
+        top: 13%;
+        left: 16%;
+        padding: 70px 30px;
+        width: 70%;
+        height: 75%;
+        overflow: auto;
+
+        input {
+            height: 30px;
+        }
+        button {
+            height: 50px;
+            width: 110px;
+        }
+    }
+
+    .delPopup {
+        width: 49%;
+        left: 27%;
+
+        button {
+            &:last-of-type {
+                margin: 45px 0 0 0;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1499px) {
+    .container-messages {
+        width: 85%;
+    }
+
+    .emailPopup {
+        margin: 0;
+        top: 17%;
+        left: 25%;
+        padding: 70px 30px;
+        height: 70%;
+        width: 50%;
+        overflow: auto;
+    }
+
+    .delPopup {
+        width: 40%;
+        left: 30%;
+    }
+}
+
+@media only screen and (min-width: 1500px) and (max-width: 2500px) {
+    .emailPopup {
+        margin: 0;
+        top: 17%;
+        left: 30%;
+        padding: 70px 30px;
+        height: 70%;
+        overflow: auto;
+
+        div {
+            .x-button {
+                top: -52px;
+            }
+        }
+    }
+
+    .delPopup {
+        width: 27%;
+        left: 37%;
+    }
+}
+
+@media only screen and (min-width: 2501px) {
+    .container-messages {
+        width: 60%;
+    }
+
+    .emailPopup {
+        width: 60%;
+        height: 70%;
+        overflow: auto;
+
+        div {
+            input {
+                height: 50px;
+            }
+            button {
+                height: 5vh;
+                width: 160px;
+            }
+        }        
+    }
+
+    .delPopup {
+        width: 30%;
+        left: 37%;
+    }
+}
+
+
+
+

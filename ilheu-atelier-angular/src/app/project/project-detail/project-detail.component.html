@@ -1,0 +1,28 @@
+
+<section class="container-project-detail" *ngIf="projectById">
+  
+    <div [hidden]="description">
+
+      <img
+        [src]="currentImage"
+        alt="{{ projectById[0].title }}"
+        (click)="onShowGallery()">
+
+      <h2 [innerHtml]="projectById[0].title">{{ projectById[0].title }}</h2>
+      <p [innerHtml]="projectById[0].location">{{ projectById[0].location }}<p>
+
+    </div>
+        
+    <div>
+      <p 
+        class="text" 
+        [hidden]="!description"
+        [innerHtml]="projectById[0].description">
+        {{ projectById[0].description }}
+      <p>
+      <a (click)="onShowDescription()" [hidden]="description">Description</a>
+      <a (click)="onShowDescription()" [hidden]="!description">Back</a>
+
+    </div>
+          
+</section> 

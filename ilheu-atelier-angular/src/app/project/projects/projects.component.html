@@ -1,0 +1,13 @@
+<section class="container-projects" *ngFor="let project of allProjects; index as i">
+
+    <div>
+        <a routerLink="{{ project.project_id }}">
+            <img [src]="project.images[0]" alt="{{ project.title }}">
+            <h2 [innerHtml]="project.title">{{ project.title }}</h2>
+            <p [innerHtml]="project.location">{{ project.location }}<p>
+        </a>
+    </div>
+ 
+</section>
+
+  

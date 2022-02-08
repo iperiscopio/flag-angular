@@ -1,0 +1,135 @@
+<div class="container-contacts">
+    <section class="container-info">
+    
+        <div class="container-image">
+            <img [src]="displayImage" alt="imagem">
+        </div>
+    
+        <section class="contacts">
+            <div>
+                <p>Ilhéu</p>
+            </div>
+            <a href="mailto:ilheuatelier@gmail.com">ilheuatelier@gmail.com</a>
+
+
+            <a href="tel:+351 914 653 485">+351 914 653 485</a>
+
+            <p>calçada da estrela 181-2</p>
+            
+            <p>1200-016  lisbon</p>
+    
+            <a href="https://www.instagram.com/ilheu.atelier/" target="_blank" title="instagram">@ilheu.atelier</a>
+        </section>
+    
+    </section>
+    
+    <form
+        #f="ngForm"
+        class="form-contact"
+        #sendMessageForm ="ngForm"
+        (ngSubmit)="onSubmit(f)">
+
+        <p>{{ error }}</p>
+    
+        <div [hidden]="submitted">
+            <label>Name:
+                <input
+                    type="text"
+                    value=""
+                    name="name"
+                    id="name"
+                    placeholder="your name"
+                    minlength="3"
+                    maxlength="255"
+                    #clientName="ngModel"
+                    [(ngModel)]="client.name"
+                    required>
+            </label>
+            <div *ngIf="clientName.errors && clientName.touched">
+                <p role="alert" *ngIf="clientName.errors.required">Mandatory field!</p>
+            </div>
+            <label>
+                Select
+                <select
+                    name="title"
+                    #clientTitle="ngModel"
+                    [(ngModel)]="client.title"
+                    required>
+                        <option value="mr">Mr</option>
+                        <option value="mrs">Mrs</option>
+                        <option value="ms">Ms</option>
+                </select>
+            </label>
+    
+            <label>Email address:
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="your email address"
+                    #clientEmail="ngModel"
+                    [(ngModel)]="client.email"
+                    required>
+            </label>
+            <div *ngIf="clientEmail.errors && clientEmail.touched">
+                <p role="alert" *ngIf="clientEmail.errors.required">Mandatory field!</p>
+            </div>
+    
+            <label>Telephone:
+                <input
+                    type="tel"
+                    name="telephone"
+                    id="telephone"
+                    placeholder="9xxxxxxxx"
+                    minlength="3"
+                    maxlength="25"
+                    #clientTelephone="ngModel"
+                    [(ngModel)]="client.telephone"
+                    required>
+            </label>
+            <div *ngIf="clientTelephone.errors && clientTelephone.touched">
+                <p role="alert" *ngIf="clientTelephone.errors.required">Mandatory field!</p>
+            </div>
+    
+            <label>You can write us here:
+                <textarea
+                    name="comment"
+                    id="contact-comment"
+                    cols="30"
+                    rows="10"
+                    placeholder="Use this space."
+                    minlength="3"
+                    maxlength="65535"
+                    #clientMessage="ngModel"
+                    [(ngModel)]="client.message"
+                    required>
+                </textarea>
+            </label>
+    
+            <div *ngIf="clientMessage.errors && clientMessage.touched">
+                <p role="alert" *ngIf="clientMessage.errors.required">Mandatory field!</p>
+            </div>
+
+    
+            <div class="captcha">
+                <img [src]="captcha" alt="captcha">
+                <input
+                    type="text"
+                    name="captcha"
+                    #clientCaptcha="ngModel"
+                    [(ngModel)]="client.captcha"
+                    required>
+            </div>
+            
+
+            <button type="submit" [disabled]="sendMessageForm.invalid">Send message</button>
+        </div>
+    
+        <div class="form-submitted" [hidden]="!submitted">
+            <p>Thank you {{client.title}} {{ client.name }} for reaching out to us.
+                We'll reply as soon as possible</p>
+        </div>
+        
+        
+    </form>
+</div>

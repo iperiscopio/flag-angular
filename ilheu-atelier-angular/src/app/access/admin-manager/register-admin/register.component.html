@@ -1,0 +1,72 @@
+<div class="container-register">
+    <h1>New admin registration</h1>
+    
+    <form
+        #f="ngForm"
+        class="form-register"
+        #registerAdminForm="ngForm"
+        (ngSubmit)="addAdmin(f)">
+    
+    
+        <div class="success-message" [hidden]="!submitted">
+            <p>Admin {{admin.name}} registered with success</p>
+        </div>
+        <div class="error-message" [hidden]="!err">
+            <p>{{ error }}</p>
+        </div>
+    
+        <div [hidden]="submitted">
+            <label>
+                Name
+                <input
+                    type="text"
+                    name="name"
+                    minlength="3"
+                    maxlength="120"
+                    #adminName="ngModel"
+                    [(ngModel)]="admin.name"
+                    required>
+            </label>
+    
+            <label>
+                Username
+                <input
+                    type="text"
+                    name="username"
+                    minlength="3"
+                    maxlength="60"
+                    #adminUsername="ngModel"
+                    [(ngModel)]="admin.username"
+                    required>
+            </label>
+    
+            <label>
+                Email
+                <input
+                    type="email"
+                    name="email"
+                    #adminEmail="ngModel"
+                    [(ngModel)]="admin.email"
+                    required>
+            </label>
+    
+            <label>
+                Password
+                <input
+                    type="password"
+                    name="password"
+                    minlength="8"
+                    maxlength="1000"
+                    #adminPassword="ngModel"
+                    [(ngModel)]="admin.password"
+                    required>
+            </label>
+    
+            <button
+                type="submit"
+                name="send"
+                [disabled]="registerAdminForm.invalid">Register</button>
+        </div>
+    
+    </form>
+</div>

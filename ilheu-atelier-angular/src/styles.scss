@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: "Hoefler_Text_Regular";
+    src: local("Hoefler_Text_Regular"), url(./Hoefler_Text_Regular.ttf) format("truetype");
+}
+
+* {
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    font-family: "Hoefler_Text_Regular", serif;
+}
+
+
+.ck-editor__editable_inline {
+    min-height: 300px;
+ 
+}

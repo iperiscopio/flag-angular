@@ -1,0 +1,236 @@
+.container-add-projects{
+    margin-top: 2%;
+    text-align: center;
+    width: 80%;
+
+    h1 {
+        margin-top: 30px;
+        font-size: 18px;
+        font-weight: normal;
+        text-transform: lowercase;
+    }
+
+    .container-grid {
+        padding: 4% 0;
+        display: grid;
+        grid-gap: 50px;
+        grid-template-columns: repeat(auto-fill, 220px);
+        grid-template-rows: repeat(auto-fill, 220px);
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        
+        .project {
+            display: grid;
+
+            button {
+                width: 220px;
+                height: 220px;
+                padding: 0;
+                background: none;
+                border: 1px solid #525252;
+                border-radius: 5px;
+                cursor: auto;
+                text-transform: lowercase;
+
+                img {
+                    width: 212px;
+                }
+
+                div {
+                    align-self: end;
+                
+                    h2 {
+                        margin-top: 20px;
+                        font-size: 18px;
+                        font-weight: normal;
+                        text-transform: lowercase;
+                
+                    }
+                
+                    p{
+                        margin-top: 5px;
+                        text-transform: lowercase;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .form-addProject {
+        margin-top: 3%;
+        margin-bottom: 15%;
+        width: 75%;
+        text-align: left;
+
+    
+        label, input {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        label {
+            display: inline-block;
+            font-size: 16px;
+            text-transform: lowercase;
+        }
+
+        input {
+            height: 4vh;
+            border: none;
+            border-radius: 3px;
+        }
+        
+        input:not([type=file]) {
+            background: rgb(211, 211, 211);
+
+        }
+        
+        button {
+            margin-top: 20px;
+            width: 130px;
+            height: 6vh;
+            border-radius: 3px;
+            border-style: none;
+            background-color: #525252;
+            color: #fff;
+            cursor: pointer;
+            text-transform: lowercase;
+        }
+
+        button:disabled,
+        button[disabled] {
+            background-color: #ebe9e9;
+            color: rgb(59, 59, 59);
+            cursor:auto;
+        }
+
+        button:hover:not([disabled]) {
+            box-shadow: 0px 2px 5px grey;
+        }
+
+        .ng-invalid.ng-touched {
+            border: 1px solid #F00;
+        }
+
+        p {
+            color: #F00;
+            text-transform: lowercase;
+            line-height: 1.8;
+            
+            span {
+                color: #000;
+                a {
+                    color: inherit;
+                }
+            }
+        }
+
+        .form-submitted {
+            margin-top: 20%;
+            text-align: center;
+            p {
+                color: #525252;
+                font-size: 18px;
+                text-transform: lowercase;
+            }
+        }
+
+    }
+}
+
+@media screen and (min-width: 250px) and (max-width: 750px) {
+    .container-add-projects {
+        margin-top: 15%;
+        margin-bottom: 40%;
+
+        .container-grid {
+            justify-content: space-evenly;
+        }
+
+        .form-addProject {
+            width: 85%;
+            margin-bottom: 40%;
+            
+            input {
+                height: 27px;
+            }
+            button {
+                height: 45px;
+                width: 100px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 751px) and (max-width: 1024px) {
+    .container-add-projects {
+        margin-bottom: 20%;
+
+        .container-grid {
+            justify-content: space-evenly;
+        }
+
+        .form-addProject {
+            width: 65%;
+            
+            input {
+                height: 30px;
+            }
+            button {
+                height: 50px;
+                width: 110px;
+            }
+        }
+        
+    }
+
+}
+@media only screen and (min-width: 1025px) and (max-width: 1499px) {
+    .container-add-projects {
+        .form-addProject {
+            width: 55%;
+
+            input {
+                height: 4vh;
+            }
+            button {
+                height: 6vh;
+                width: 115px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1500px) and (max-width: 2500px) {
+    .container-add-projects {
+        .form-addProject {
+
+            input {
+                height: 4vh;
+            }
+            button {
+                height: 5vh;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 2501px) {
+    .container-add-projects {
+        .form-addProject {
+            width: 60%;
+
+            input {
+                height: 50px;
+            }
+            button {
+                height: 5vh;
+                width: 160px;
+            }
+        }
+    }
+}

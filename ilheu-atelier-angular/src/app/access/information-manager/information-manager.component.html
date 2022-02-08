@@ -1,0 +1,168 @@
+<div class="container-info">
+    <!-- ADD NEW INFO -->
+    <div class="add-info">
+        <button (click)="openForm()">
+            <h1>Add new information</h1>
+        </button>
+        <!-- ADD NEW INFO FORM -->
+        <form
+            *ngIf="open"
+            #f="ngForm"
+            class="form-addInfo"
+            #addInfoForm="ngForm"
+            (ngSubmit)="addInfo(f)">
+
+            <div class="success-message" [hidden]="!addSubmitted">
+                <p>{{newInfo.title}} registered with success</p>
+            </div>
+            <div class="error-message" [hidden]="!err">
+                <p>{{ error }}</p>
+            </div>
+
+            <div [hidden]="addSubmitted">
+                <label>
+                    Title (this title is never showed up in the website)
+                    <input
+                        type="text"
+                        name="title"
+                        minlength="3"
+                        maxlength="120"
+                        #newInfoTitle="ngModel"
+                        [(ngModel)]="newInfo.title"
+                        required>
+                </label>
+
+                <label>
+                    Description
+                </label>
+                <ckeditor 
+                    [editor]="Editor" 
+                    [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic', 'link', '|', 'blockquote' ] }"
+                    tagName="textarea"
+                    name="description"
+                    minlength="3"
+                    maxlength="65535"
+                    #newInfoInfo="ngModel"
+                    [(ngModel)]="newInfo.info"
+                    required>
+                </ckeditor>
+                
+                <button
+                    type="submit"
+                    name="send"
+                    [disabled]="addInfoForm.invalid">Save Info</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- LIST ALL INFO IN DB -->
+    <div class="info" *ngFor="let info of information; index as i">
+        <h1 [innerHtml]="info.title">{{ info.title }}</h1>
+        <p class="userinfo" [innerHtml]="info.info">{{ info.info }}</p>
+
+        <div class="buttons">
+            <button (click)="selectAndOpen(info)">Update</button>
+            <button (click)="deletePopup(info)">Delete</button>
+        </div>
+    </div>
+    
+</div>
+
+<!-- UPDATE INFO FORM -->
+<form
+    *ngIf="update"
+    #f="ngForm"
+    class="form-updateInfo"
+    #updateInfoForm="ngForm"
+    (ngSubmit)="updateInfo( formId, f )">
+
+    <div class="closeUpdatePopup">
+        <button
+            type="button"
+            (click)="cancel()">X
+        </button>
+
+        <h2>Update Information</h2>
+    </div>
+    
+    
+
+    <div class="success-message" [hidden]="!updateSubmitted">
+        <p>{{info.title}} updated with success</p>
+    </div>
+    <div class="error-message" [hidden]="!err">
+        <p>{{ error }}</p>
+    </div>
+
+    <div [hidden]="updateSubmitted">
+        <label>
+            Title (this title is never showed up in the website)
+            <input
+                type="text"
+                name="title"
+                minlength="3"
+                maxlength="120"
+                #infoTitle="ngModel"
+                [(ngModel)]="info.title"
+                required>
+        </label>
+
+        <label>
+            Description
+        </label>
+        <ckeditor 
+            [editor]="Editor"
+            [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic', 'link', '|', 'blockquote' ] }" 
+            tagName="textarea"
+            name="description"
+            minlength="3"
+            maxlength="65535"
+            #infoInfo="ngModel"
+            [(ngModel)]="info.info"
+            required>
+        </ckeditor>
+
+        <button
+            type="submit"
+            name="send"
+            [disabled]="updateInfoForm.invalid">Save Info</button>
+    </div>
+
+</form>
+
+
+<!-- DELETE INFO POPUP -->
+<div 
+    class="popup" 
+    [hidden]="!popup">
+
+    <div [hidden]="delSubmitted">
+        <button
+            type="button"
+            class="x-button"
+            (click)="cancel()">X
+        </button>
+        <p>Do you wish to delete information "{{ info.title }}"?</p>
+        <button 
+            type="button"
+            (click)="cancel()">Cancel
+        </button>
+        <button 
+            type="submit"
+            name="send"
+            (click)="deleteInfo(formId)">Delete Information
+        </button> 
+    </div>
+
+
+    <div class="success-message" [hidden]="!delSubmitted">
+        <button 
+            type="button"
+            (click)="cancel()">X
+        </button>
+        <p>Information deleted with success</p>
+    </div>
+</div>
+

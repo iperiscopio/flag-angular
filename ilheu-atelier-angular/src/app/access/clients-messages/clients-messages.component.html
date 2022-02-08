@@ -1,0 +1,223 @@
+
+<div class="container-messages">
+    <table>
+        <tr class="titles">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Telephone</th>
+            <th class="message">Message</th>
+            <th>Message Date</th>
+        </tr>
+        <tr class="info" *ngFor="let message of messages; index as i">
+            <td>{{ message.title }} {{ message.name }}</td>
+            <td>{{ message.email }}</td>
+            <td>{{ message.telephone }}</td>
+            <td class="message">{{ message.message }}</td>
+            <td>{{ message.message_date }}</td>
+            <div>
+                <button
+                    *ngIf="message.message_id"
+                    (click)="sendEmailPopup(message)">Reply
+                </button>
+            </div>
+            <div>
+                <button
+                    *ngIf="message.message_id"
+                    (click)="deletePopup(message)">Delete
+                </button>
+            </div>
+        </tr>
+    </table>
+
+    <table class="small-devices">
+        <tr class="info" *ngFor="let message of messages; index as i">
+            <div>
+                <tr>
+                    <th class="col-1">Name</th>
+                    <td>{{ message.title }} {{ message.name }}</td>
+                    <th class="message">Message</th>
+                    <th class="message-date">Message Date</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th class="col-1">Email</th>
+                    <td>{{ message.email }}</td>
+                    <td rowspan="2" class="td-message">{{ message.message }}</td>
+                    <td rowspan="2">{{ message.message_date }}</td>
+                    <td rowspan="2">
+                        <button
+                            *ngIf="message.message_id"
+                            (click)="sendEmailPopup(message)">Reply
+                        </button>
+                        <button
+                            *ngIf="message.message_id"
+                            (click)="deletePopup(message)">Delete
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="col-1">Tel</th>
+                    <td>{{ message.telephone }}</td>
+                </tr>
+            </div>
+    </table>
+
+    <table class="mobile-devices">
+        <tr class="info" *ngFor="let message of messages; index as i">
+            <div>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ message.title }} {{ message.name }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ message.email }}</td>
+                </tr>
+                <tr>
+                    <th>Tel</th>
+                    <td>{{ message.telephone }}</td>
+                </tr>
+                <tr>
+                    <th>Message</th>
+                    <td class="message">{{ message.message }}</td>
+                </tr>
+                <tr>
+                    <th>Message Date</th>
+                    <td>{{ message.message_date }}</td>
+                </tr>
+                <td colspan="2">
+                    <button
+                        *ngIf="message.message_id"
+                        (click)="sendEmailPopup(message)">Reply
+                    </button>
+                    <button
+                        *ngIf="message.message_id"
+                        (click)="deletePopup(message)">Delete
+                    </button>
+                </td>
+            </div>
+        </tr>
+    </table>
+</div>
+
+<!-- SEND EMAIL POPUP -->
+<form 
+    class="emailPopup" 
+    [hidden]="!emailPopup"
+    #f="ngForm"
+    #sendEmailForm="ngForm"
+    (ngSubmit)="sendEmail(f)">
+
+    <div [hidden]="emailSubmitted">
+        <button
+            type="button"
+            class="x-button"
+            (click)="cancel()">X
+        </button>
+
+        <p>Replying to {{ email.title }} {{ email.name }}</p>
+
+        <label>
+            Email
+            <input
+                type="text"
+                name="email"
+                #emailEmail="ngModel"
+                [(ngModel)]="email.email"
+                required>
+        </label>
+        <label>
+            Subject
+            <input
+                type="text"
+                name="subject"
+                minlength="3"
+                maxlength="250"
+                #emailSubject="ngModel"
+                [(ngModel)]="email.subject"
+                required>
+        </label>
+        <label>
+            Message
+        </label>
+        <ckeditor
+            [editor]="Editor"
+            [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic', 'link', '|', 'blockquote' ] }"
+            tagName="textarea"
+            name="message"
+            minlength="10"
+            maxlength="65535"
+            #emailMessage="ngModel"
+            [(ngModel)]="email.message"
+            required>
+            {{ email.title }} {{ email.name }}
+        </ckeditor>
+
+        <label>
+            Insert attachments
+            <input
+                type="file"
+                name="attachments"
+                (change)="onSelectedFile($event)"
+                accept=".pdf, .odt, .docx, .doc, .xlsx, .xls, .ppt, .pptx, .rar, .zip, .txt, .jpg, .png, .gif, .webp"
+                multiple>
+                (Total max size: 25MB)
+        </label>
+
+        <button
+            type="button"
+            (click)="cancel()">Cancel
+        </button>
+        
+        <button
+            type="submit"
+            name="send"
+            [disabled]="sendEmailForm.invalid">Send Email
+        </button>
+    </div>
+
+    <div class="success-message" [hidden]="!emailSubmitted">
+        <button
+            type="button"
+            (click)="cancel()">X
+        </button>
+        <p>Message sent with success to {{ email.title }} {{ email.name }}!</p>
+    </div>
+</form>
+
+
+<!-- DELETE INFO POPUP -->
+<div 
+    class="delPopup"
+    [hidden]="!delPopup">
+
+    <div [hidden]="delSubmitted">
+        <button
+            type="button"
+            class="x-button"
+            (click)="cancel()">X
+        </button>
+        <p>Do you wish to delete this message from "{{ messageTitle }} {{ messageName }}"?</p>
+        <button
+            type="button"
+            (click)="cancel()">Cancel
+        </button>
+        <button
+            type="submit"
+            name="send"
+            (click)="deleteMessage(messageId)">Delete Message
+        </button>
+    </div>
+    
+    <div class="success-message" [hidden]="!delSubmitted">
+        <button
+            type="button"
+            name="send"
+            (click)="cancel()">X
+        </button>
+        <p>Message deleted with success</p>
+    </div>
+    
+    
+</div>
+

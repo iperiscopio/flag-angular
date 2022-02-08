@@ -1,0 +1,146 @@
+
+<div *ngIf="!isAdminAuth">
+    <form 
+        #f="ngForm"
+        class="form-login"
+        ngForm
+        #loginAdminForm="ngForm"
+        (submit)="loginAdmin(f)">
+
+        <p>{{ error }}</p>
+
+        <label for="email">Email</label>
+        <input 
+            type="email"
+            name="email"
+            #adminLoginEmail="ngModel"
+            [(ngModel)]="adminLogin.email"
+            required>
+
+        <label for="password">Password</label>
+        <input 
+            type="password"
+            name="password"
+            minlength="8"
+            maxlength="1000"
+            #adminLoginPassword="ngModel"
+            [(ngModel)]="adminLogin.password"
+            required>
+
+        <button 
+            name="send"
+            [disabled]="loginAdminForm.invalid">Login</button>
+
+    </form>
+</div>
+
+<div *ngIf="isAdminAuth">
+    <nav>
+        <div [hidden]="!menuMobile" class="menuMobile"> 
+            <a (click)="toggleMenuMobile()">
+                <div class="menu-button">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </a>
+        
+        </div>
+        <div [hidden]="menuMobile" class="menuMobile"> 
+            <a (click)="toggleMenuMobile()">&times;</a>
+        </div>
+
+        <div [hidden]="menuMobile">
+            <ul>
+                <li>
+                    <a 
+                        routerLink="/secretAdmin" 
+                        routerLinkActive="active" 
+                        [routerLinkActiveOptions]={exact:true}>Home</a>
+                </li>
+                <li><a routerLinkActive="active">Accounts</a>
+                    <ul>
+                        <li>
+                            <a 
+                                routerLink="admin-manager/register"
+                                routerLinkActive="active">
+                                Register Admin
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                                routerLink="admin-manager/update"
+                                routerLinkActive="active">
+                                Update Info
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                                routerLink="admin-manager/delete"
+                                routerLinkActive="active">
+                                Delete Admin
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a routerLink="information-manager" routerLinkActive="active">Web Information</a>
+                </li>
+                <li>
+                    <a routerLink="messages-manager" routerLinkActive="active">Clients Messages</a>
+                </li>
+                <li><a routerLinkActive="active">Project Manager</a>
+                    <ul>
+                        <li>
+                            <a 
+                                routerLink="projects-manager/add"
+                                routerLinkActive="active">
+                                Add Project
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                                routerLink="projects-manager/update"
+                                routerLinkActive="active">
+                                Update Project
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                                routerLink="projects-manager/delete"
+                                routerLinkActive="active">
+                                Delete Project
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a (click)="wantLogout()">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div 
+        class="logoutPopup"
+        [hidden]="!isLogout">
+        <div>
+            <button
+                type="button"
+                class="x-button"
+                (click)="cancel()">X
+            </button>
+        </div>
+        <p>Do you wish to continue?</p>
+        <button 
+            type="button"
+            (click)="cancel()">Cancel
+        </button>
+        <button 
+            type="submit"
+            name="send"
+            (click)="logout()">Logout
+        </button> 
+
+    </div>
+
+    <router-outlet></router-outlet>
+</div>

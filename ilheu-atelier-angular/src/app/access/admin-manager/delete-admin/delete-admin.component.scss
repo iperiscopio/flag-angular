@@ -1,0 +1,118 @@
+.container-adminDelete {
+    text-align: center;
+    margin-top: 7%;
+
+    div {
+        h1 {
+            margin-top: 3%;
+            color: red;
+            font-size: 4rem;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            width: 40%;
+            margin-top: 5%;
+            margin-bottom: 3%;
+            text-transform: lowercase;
+        }
+        
+        p {
+            margin: 30px;
+            font-size: 1.1rem;
+            text-transform: lowercase;
+        }
+
+        a {
+            padding: 16px 43px;
+            border-radius: 5px;
+            border-style: none;
+            background-color: #525252;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.2rem;
+            text-decoration: none;
+            text-transform: lowercase;
+        }
+        
+        button {
+            width: 110px;
+            height: 5vh;
+            border-radius: 5px;
+            border-style: none;
+            background-color: #525252;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.2rem;
+            text-transform: lowercase;
+        }
+
+        button:hover,
+        a:hover {
+            background-color: #ebe9e9;
+            color: #525252;
+            box-shadow: 0px 2px 5px grey;
+        }
+    }
+    
+}
+
+@media screen and (min-width: 250px) and (max-width: 750px) {
+    .container-adminDelete {
+        margin-bottom: 40%;
+        div {
+
+            h2 {
+                margin-bottom: 5%;
+            }
+
+            button {
+                height: 50px;
+                width: 100px;
+            }
+        }
+    }
+   
+}
+
+@media only screen and (min-width: 751px) and (max-width: 1024px) {
+    .container-adminDelete {
+        margin-bottom: 15%;
+        div {
+
+            h2 {
+                margin-bottom: 5%;
+            }
+
+            button {
+                height: 50px;
+                width: 100px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1500px) and (max-width: 2500px) {
+    .container-adminDelete {
+        margin-top: 4%;
+
+        div {
+            button {
+                height: 5vh;
+                width: 124px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 2501px) {
+    .container-adminDelete {
+        margin-top: 4%;
+
+        div {
+            button {
+                width: 139px;
+            }
+        }
+    }
+}

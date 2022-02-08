@@ -1,0 +1,23 @@
+<div class="container-adminDelete">
+    
+    <div [hidden]="!onlyAdmin">
+        <h1>Forbidden action!</h1>
+        <h2>There's just 1 administrator in this database.</h2>
+        <p>In order to procceed, you'll need to register another admin.</p>
+        
+        <a routerLink="../register">Register</a>
+    </div>
+
+    <div [hidden]="onlyAdmin">
+
+        <h1>WARNING!</h1>
+        <h2>by proceeding with this action, you're definitely removing your email from this database and losing access to this backoffice forever</h2>
+        
+        <p>if you still wish to proceed click</p>
+        <button
+            type="button"
+            name="send"
+            (click)="removeAdmin(adminId)">Delete
+        </button>
+    </div>
+</div>

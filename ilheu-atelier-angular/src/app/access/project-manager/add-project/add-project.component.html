@@ -1,0 +1,105 @@
+<div class="container-add-projects">
+
+    <section class="container-grid" >
+        <div class="container-projects" *ngFor="let project of projects; index as i">
+            <div class="project">
+                <button>
+                    <img *ngIf="project.images" [src]="project.images[0]" alt="{{ project.title }}">
+
+                    <div>
+                        <h2>{{ project.title }}</h2>
+                        <p>{{ project.location }}<p>
+                    </div>
+                </button>
+            </div>
+        </div>
+     
+    </section>
+    
+    <h1>Add Project to database and website</h1>
+
+    <form
+        #f="ngForm"
+        class="form-addProject"
+        #addProjectForm="ngForm"
+        (ngSubmit)="addProject(f)">
+        
+    
+        <div [hidden]="submitted">
+
+            <label>
+                Title:
+                <input
+                    type="text"
+                    name="title"
+                    #projectTitle="ngModel"
+                    [(ngModel)]="project.title"
+                    required>
+            </label>
+            <div *ngIf="projectTitle.errors && projectTitle.touched">
+                <p role="alert" *ngIf="projectTitle.errors.required">Mandatory field!</p>
+            </div>
+    
+            <label>
+                Location
+                <input
+                    type="text"
+                    name="location"
+                    #projectLocation="ngModel"
+                    [(ngModel)]="project.location"
+                    required>
+            </label>
+            <div *ngIf="projectLocation.errors && projectLocation.touched">
+                <p role="alert" *ngIf="projectLocation.errors.required">Mandatory field!</p>
+            </div>
+
+            <label>
+                Description
+            </label>
+            <ckeditor 
+                [editor]="Editor"
+                [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic', 'link', '|', 'blockquote' ] }"
+                tagName="textarea"
+                name="description"
+                minlength="3"
+                maxlength="65535"
+                #projectDescription="ngModel"
+                [(ngModel)]="project.description"
+                required>
+            </ckeditor>
+            
+            
+            <div *ngIf="projectDescription.errors && projectDescription.touched">
+                <p role="alert" *ngIf="projectDescription.errors.required">Mandatory field!</p>
+            </div>
+    
+            <label>
+                Add images to this project
+                <input 
+                    type="file"
+                    name="images"
+                    (change)="onSelectedFile($event)"
+                    accept=".jpg, .png, .gif, .webp"
+                    multiple>
+            </label>
+
+            <p role="alert">Projects without images are stored in DB, but won't be shown in the website
+                <br>
+                <span>You'll be able to add images in <a routerLink="projects-manager/update">update project</a></span>
+            </p>
+
+            <button 
+                type="submit"
+                name="send"
+                [disabled]="addProjectForm.invalid">Add Project</button>
+        </div>
+    
+        <div class="form-submitted" [hidden]="!submitted">
+            <p>The project {{project.title}} was added with success</p>
+        </div>
+
+        <div class="error-message" [hidden]="!err">
+            <p>{{ error }}</p>
+        </div>
+    </form>
+</div>

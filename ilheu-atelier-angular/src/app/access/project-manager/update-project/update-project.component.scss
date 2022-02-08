@@ -1,0 +1,308 @@
+.container-update-projects {
+    margin-top: 3%;
+    margin-bottom: 15%;
+    text-align: center;
+    width: 80%;
+    
+    h1 {
+        font-size: 18px;
+        font-weight: normal;
+        text-transform: lowercase;
+    }
+
+    .container-grid {
+        padding: 4% 0;
+        display: grid;
+        grid-gap: 50px;
+        grid-template-columns: repeat(auto-fill, 220px);
+        grid-template-rows: repeat(auto-fill, 220px);
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        
+        .project {
+            display: grid;
+
+            button {
+                width: 220px;
+                height: 220px;
+                padding: 0;
+                background: none;
+                border: 1px solid #525252;
+                border-radius: 5px;
+                cursor: pointer;
+                text-transform: lowercase;
+
+                img {
+                    width: 212px;
+                }
+
+                div {
+                    align-self: end;
+                
+                    h2 {
+                        margin-top: 20px;
+                        font-size: 18px;
+                        font-weight: normal;
+                        text-transform: lowercase;
+                
+                    }
+                
+                    p{
+                        margin-top: 5px;
+                        text-transform: lowercase;
+                    }
+                
+                    h2:hover, p:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            button:hover,
+            button:focus,
+            button:active {
+                border: 1px solid red;
+                background-color: #f5f3f3;
+            } 
+            
+
+
+        }
+
+    }
+
+    .div-delete-image {
+        margin-top: 80px;
+        border-top: 1px solid #8c8c8c;
+        
+        .delete-image {
+            display: inline-flex;
+
+            div {
+                margin: 30px;
+
+                img {
+                    outline: 1px solid #8c8c8c;
+                    width: 400px;
+                    display: block;
+                }
+
+                button {
+                    display: block;
+                    margin-top: 20px;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 3px;
+                    border-style: none;
+                    background-color: red;
+                    color: #fff;
+                    cursor: pointer;
+                    text-transform: lowercase;
+                    
+                } 
+
+                button:hover {
+                    box-shadow: 0px 1px 5px grey;
+                }
+            }
+
+            
+        }
+    }
+    
+
+    .form-updateProject {
+        margin-top: 3%;
+        margin-bottom: 15%;
+        width: 75%;
+        text-align: left;
+
+        label, input {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        label {
+            display: inline-block;
+            font-size: 16px;
+            text-transform: lowercase;
+        }
+
+        input {
+            height: 4vh;
+            border: none;
+            border-radius: 3px;
+            text-transform: none;
+        }
+        
+        input:not([type=file]) {
+            background: rgb(211, 211, 211);
+
+        }
+        
+        button {
+            margin-top: 20px;
+            width: 130px;
+            height: 6vh;
+            border-radius: 3px;
+            border-style: none;
+            background-color: #525252;
+            color: #fff;
+            cursor: pointer;
+            text-transform: lowercase;
+        }
+
+        button:disabled,
+        button[disabled] {
+            background-color: #ebe9e9;
+            color: rgb(59, 59, 59);
+            cursor: auto;
+        }
+
+        button:hover:not([disabled]) {
+            box-shadow: 0px 1px 5px grey;
+        }
+
+        .ng-invalid.ng-touched {
+            border: 1px solid #F00;
+        }
+
+        p {
+            color: #F00;
+            text-transform: lowercase;
+        }
+
+        .form-submitted {
+            margin-top: 20%;
+            text-align: center;
+            p {
+                color: #525252;
+                font-size: 18px;
+                text-transform: lowercase;
+            }
+        }
+
+    }
+    
+}
+
+@media screen and (min-width: 250px) and (max-width: 750px) {
+    .container-update-projects {
+        margin-top: 15%;
+        margin-bottom: 40%;
+
+        .container-grid {
+            justify-content: space-evenly;
+        }
+
+        .form-updateProject {
+            width: 85%;
+            margin-bottom: 40%;
+            
+            input {
+                height: 27px;
+            }
+            button {
+                height: 45px;
+                width: 100px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 751px) and (max-width: 1024px) {
+    .container-update-projects {
+        margin-bottom: 20%;
+
+        .container-grid {
+            justify-content: space-evenly;
+        }
+
+        .form-updateProject {
+            width: 65%;
+            
+            input {
+                height: 30px;
+            }
+            button {
+                height: 50px;
+                width: 110px;
+            }
+        }
+        
+    }
+
+}
+@media only screen and (min-width: 1025px) and (max-width: 1499px) {
+    .container-update-projects {
+        .form-updateProject {
+            width: 55%;
+
+            input {
+                height: 4vh;
+            }
+            button {
+                height: 6vh;
+                width: 115px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1500px) and (max-width: 2500px) {
+    .container-update-projects {
+
+        .delete-image {
+            .delete-image {
+
+                div {
+
+                    img {
+                        width: 650px;
+                    }
+                }
+            }      
+        }
+        
+        .form-updateProject {
+
+            input {
+                height: 4vh;
+            }
+            button {
+                height: 5vh;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 2501px) {
+    .container-update-projects {
+        .delete-image {
+            .delete-image {
+
+                div {
+
+                    img {
+                        width: 650px;
+                    }
+                }
+            }      
+        }
+        
+        .form-updateProject {
+            width: 60%;
+
+            input {
+                height: 50px;
+            }
+            button {
+                height: 5vh;
+                width: 160px;
+            }
+        }
+    }
+}
